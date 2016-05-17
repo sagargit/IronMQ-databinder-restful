@@ -1,0 +1,23 @@
+
+POST     /queue/:name                                               controllers.Application.createQueue(name: String)
+GET      /queue                                                     controllers.Application.listAllQueues
+GET      /queue/:name                                               controllers.Application.getQueueInfo(name: String)
+PUT      /queue/:name                                               controllers.Application.updateQueue(name: String)
+DELETE   /queue/:name                                               controllers.Application.deleteQueue(name: String)
+
+
+POST     /queue/:name/subscribers                                   controllers.Application.addOrUpdateSubscribers(name: String)
+PUT      /queue/:name/subscribers/replace                           controllers.Application.replaceSubscribers(name: String)
+DELETE   /queue/:name/subscribers                                   controllers.Application.deleteSubscribers(name: String)
+
+
+POST     /queue/:name/messages                                      controllers.Application.postMessageToQueue(name: String)
+GET      /queue/:name/messages                                      controllers.Application.peekMessages(name: String)
+GET      /queue/:name/messages/:messageId                           controllers.Application.getPushStatus(name: String,messageId: String)
+DELETE   /queue/:name/messages/:messageId                           controllers.Application.deleteMessageById(name: String,messageId: String)
+DELETE   /queue/:name/messages                                      controllers.Application.deleteAllMessages(name: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                                               controllers.Assets.at(path="/public", file)
+
+    
